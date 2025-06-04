@@ -13,6 +13,7 @@ import JobSeekerAdvertisesPage from "./pages/JobSeeker/JobSeekerAdvertisesPage/J
 import JobSeekerRequestsPage from "./pages/JobSeeker/JobSeekerRequestsPage/JobSeekerRequestsPage";
 import JobSeekerResumesPage from "./pages/JobSeeker/JobSeekerResumesPage/JobSeekerResumesPage";
 import EmployerPanel from "./pages/Employer/EmployerPanel";
+import JobSeekerPanel from "./pages/JobSeeker/JobSeekerPanel";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             element={<EmployerAdvertisesPage />}
           />
           <Route path="/employer-requests" element={<EmployerRequestsPage />} />
+          <Route path="/jobseeker-panel" element={<JobSeekerPanel />} />
           <Route path="/jobseekers" element={<JobSeekersPage />} />
           <Route
             path="/jobseeker-details"

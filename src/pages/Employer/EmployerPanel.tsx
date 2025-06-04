@@ -4,18 +4,18 @@ import { Link } from "react-router";
 function EmployerPanel() {
   return (
     <ul className="flex flex-wrap gap-4 w-full h-full my-48 items-center justify-center px-8">
-      <EmployerPanelItem link="/employers" title="لیست کارفرما" icon="groups" />
-      <EmployerPanelItem
+      <PanelItem link="/employers" title="لیست کارفرما" icon="groups" />
+      <PanelItem
         link="/employer-details"
         title="جزئیات کارفرما"
         icon="demography"
       />
-      <EmployerPanelItem
+      <PanelItem
         link="/employer-advertises"
         title="آگهی کارفرما"
         icon="campaign"
       />
-      <EmployerPanelItem
+      <PanelItem
         link="/employer-requests"
         title="درخواست کارفرما"
         icon="work_history"
@@ -26,13 +26,13 @@ function EmployerPanel() {
 
 export default EmployerPanel;
 
-type EmployerPanelItemProps = {
+type PanelItemProps = {
   title: string;
   icon: string;
   link: string;
 };
 
-function EmployerPanelItem({ title, icon, link }: EmployerPanelItemProps) {
+export function PanelItem({ title, icon, link }: PanelItemProps) {
   return (
     <li>
       <Link to={link}>

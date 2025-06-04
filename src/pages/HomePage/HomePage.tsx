@@ -17,7 +17,7 @@ function HomePage() {
   return (
     <main className="flex-2/3 justify-center items-center flex h-full">
       <div className="flex items-center justify-center gap-8 py-48">
-        <Link to={'/employer-panel'}>
+        <Link to={"/employer-panel"}>
           <Card className="cursor-pointer hover:shadow-md duration-500">
             <CardContent>
               <span
@@ -34,21 +34,23 @@ function HomePage() {
             </CardHeader>
           </Card>
         </Link>
-        <Card className="cursor-pointer hover:shadow-md duration-500">
-          <CardContent>
-            <span
-              style={{
-                fontSize: "8rem",
-              }}
-              className="material-symbols-outlined text-muted-foreground"
-            >
-              person
-            </span>
-          </CardContent>
-          <CardHeader className="flex justify-center text-2xl font-bold text-secondary-foreground">
-            کارجو
-          </CardHeader>
-        </Card>
+        <Link to={"/jobseeker-panel"}>
+          <Card className="cursor-pointer hover:shadow-md duration-500">
+            <CardContent>
+              <span
+                style={{
+                  fontSize: "8rem",
+                }}
+                className="material-symbols-outlined text-muted-foreground"
+              >
+                person
+              </span>
+            </CardContent>
+            <CardHeader className="flex justify-center text-2xl font-bold text-secondary-foreground">
+              کارجو
+            </CardHeader>
+          </Card>
+        </Link>
       </div>
     </main>
   );
