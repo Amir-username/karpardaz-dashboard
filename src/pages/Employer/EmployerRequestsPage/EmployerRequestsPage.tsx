@@ -29,7 +29,7 @@ function EmployerRequestsPage() {
       <div className="flex gap-1 w-96">
         <Button onClick={handleSearchRequests}>جستجو</Button>
         <Input
-          type="numbers"
+          type="number"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
           placeholder="شناسه آگهی"
