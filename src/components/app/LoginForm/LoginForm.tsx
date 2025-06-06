@@ -5,10 +5,12 @@ import { BASE_LINK } from "@/config";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigator = useNavigate()
 
   const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,10 +40,11 @@ function LoginForm() {
       fetchLogin();
       setUsername("");
       setPassword("");
+      navigator('/')
     }
   };
   return (
-    <main className="flex justify-center items-center mt-64">
+    <main className="flex justify-center items-center">
       <Card className="w-96 gap-16">
         <CardHeader className="flex items-center justify-center">
           <h1 className="text-3xl">ورود ادمین</h1>
