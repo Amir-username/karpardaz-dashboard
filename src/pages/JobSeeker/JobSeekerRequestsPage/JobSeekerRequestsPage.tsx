@@ -3,7 +3,6 @@ import { Input } from "@/components/ui/input";
 import { Table, TableCell, TableRow } from "@/components/ui/table";
 import { BASE_LINK } from "@/config";
 import type { AdRequestModel } from "@/models/AdRequest";
-import type { JobSeekrAdModel } from "@/models/JobSeekerAd";
 import { useState } from "react";
 
 function JobSeekerRequestsPage() {

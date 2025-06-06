@@ -11,7 +11,6 @@ import JobSeekersPage from "./pages/JobSeeker/JobSeekersPage/JobSeekersPage";
 import JobSeekersDetailsPage from "./pages/JobSeeker/JobSeekerDetailsPage/JobSeekerDetailsPage";
 import JobSeekerAdvertisesPage from "./pages/JobSeeker/JobSeekerAdvertisesPage/JobSeekerAdvertisesPage";
 import JobSeekerRequestsPage from "./pages/JobSeeker/JobSeekerRequestsPage/JobSeekerRequestsPage";
-import JobSeekerResumesPage from "./pages/JobSeeker/JobSeekerResumesPage/JobSeekerResumesPage";
 import EmployerPanel from "./pages/Employer/EmployerPanel";
 import JobSeekerPanel from "./pages/JobSeeker/JobSeekerPanel";
 
@@ -47,7 +46,6 @@ function App() {
             path="/jobseeker-requests"
             element={<JobSeekerRequestsPage />}
           />
-          <Route path="/jobseeker-resumes" element={<JobSeekerResumesPage />} />
         </Routes>
       </div>
     </>

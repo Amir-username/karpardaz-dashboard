@@ -48,10 +48,6 @@ function SideBar() {
                 text="لیست آگهی کارجو"
               />
               <SideBarItem link="/jobseeker-requests" text="لیست درخواست های" />
-              <SideBarItem
-                link="/jobseeker-resumes"
-                text="لیست رزومه های کارجو"
-              />
             </ul>
           </AccordionContent>
         </AccordionItem>
