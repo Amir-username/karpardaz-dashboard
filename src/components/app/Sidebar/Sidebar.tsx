@@ -41,7 +41,7 @@ function SideBar() {
           </AccordionTrigger>
           <AccordionContent>
             <ul className="flex flex-col gap-3 py-2">
-              <SideBarItem link="/jobseeekrs" text="لیست کارجو" />
+              <SideBarItem link="/jobseekers" text="لیست کارجو" />
               <SideBarItem link="/jobseeker-details" text="جزئیات کارجو" />
               <SideBarItem
                 link="/jobseeker-advertises"
