@@ -15,6 +15,8 @@ import EmployerPanel from "./pages/Employer/EmployerPanel";
 import JobSeekerPanel from "./pages/JobSeeker/JobSeekerPanel";
 import GenderChartPage from "./pages/Charts/GenderChartPage";
 import AdSalaryChartPage from "./pages/Charts/AdSalaryChartPage";
+import PositionChartPage from "./pages/Charts/PositionChartPage";
+import UsersChartPage from "./pages/Charts/UsersChartPage";
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
           />
           <Route path="/charts/gender" element={<GenderChartPage />} />
           <Route path="/charts/ad-salary" element={<AdSalaryChartPage />} />
+          <Route path="/charts/position" element={<PositionChartPage />} />
+          <Route path="/charts/users" element={<UsersChartPage />} />
         </Routes>
       </div>
     </>

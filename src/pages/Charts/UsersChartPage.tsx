@@ -1,38 +1,31 @@
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
-import { fetchGenderChart } from "@/fetch/chart/fetchGenderChart";
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
+import { fetchUsersChart } from "@/fetch/chart/fetchUsersChart";
 import { useEffect, useState } from "react";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const chartConfig = {
-  male: {
-    label: "آقا",
+  jobseeker: {
+    label: "کارجو",
     color: "#60a5fa",
   },
-  female: {
-    label: "خانم",
+  employer: {
+    label: "کارفرما",
     color: "#2563eb",
   },
 } satisfies ChartConfig;
 
 type ChartDataType = {
   title: string;
-  female: number;
-  male: number;
+  jobseeker: number;
+  employer: number;
 };
 
-export default function GenderChartPage() {
+export default function UsersChartPage() {
   const [chartData, setChartData] = useState<ChartDataType[]>();
 
   useEffect(() => {
     const getData = async () => {
-      const data = await fetchGenderChart();
+      const data = await fetchUsersChart();
       console.log(data);
 
       if (data) {
@@ -45,22 +38,22 @@ export default function GenderChartPage() {
 
   return (
     <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
-      <h1 className="text-center">نمودار جنسیت</h1>
+      <h1 className="text-center">نمودار کاربران</h1>
       <div className="">
-        <ChartContainer config={chartConfig} className="min-h-[400px]">
+        <ChartContainer dir="ltr" config={chartConfig} className="min-h-[400px]">
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />
             <XAxis
-              dataKey="gender"
+              dataKey="users"
               tickLine={false}
               tickMargin={10}
               axisLine={false}
               tickFormatter={(value) => value.slice(0, 5)}
             />
-            <Bar dataKey="male" barSize={40} fill="#ccc" radius={6} />
-            <Bar barSize={40} dataKey="female" fill="#2563eb" radius={6} />
+            <Bar dataKey={"employer"} barSize={40} fill="#2563eb" radius={6} />
+            <Bar dataKey="jobseeker" barSize={40} fill="#ccc" radius={6} />
           </BarChart>
         </ChartContainer>
       </div>
