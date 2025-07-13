@@ -51,12 +51,32 @@ export default function AdSalaryChartPage() {
         chartConfig={chartConfig}
         chartData={chartData}
         chartTitle="advertise salary"
-      >
-        <Bar dataKey="intern" barSize={30} fill="#ccc" radius={6} />
-        <Bar dataKey="junior" barSize={30} fill="#2563eb" radius={6} />
-        <Bar dataKey="midlevel" barSize={30} fill="#2563eb" radius={6} />
-        <Bar dataKey="senior" barSize={30} fill="#2563eb" radius={6} />
-        <Bar dataKey="neg" barSize={30} fill="#2563eb" radius={6} />
+        >
+        <Bar dataKey="neg" barSize={30} fill="hsl(150, 100%, 65%)" radius={6} />
+        <Bar
+          dataKey="intern"
+          barSize={30}
+          fill="hsl(150, 100%, 45%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="junior"
+          barSize={30}
+          fill="hsl(150, 100%, 35%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="midlevel"
+          barSize={30}
+          fill="hsl(150, 100%, 25%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="senior"
+          barSize={30}
+          fill="hsl(150, 100%, 15%)"
+          radius={6}
+        />
       </MyChartBar>
     );
   }

@@ -24,8 +24,8 @@ export default function MyChartBar({
   chartTitle,
 }: MyChartBarProps) {
   return (
-    <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
-      <h1 className="text-center">{title}</h1>
+    <main className="flex w-full h-full py-12 gap-12 items-center justify-center flex-col">
+      <h1 className="text-center text-foreground text-2xl">{title}</h1>
       <div className="">
         <ChartContainer
           dir="ltr"

@@ -35,8 +35,18 @@ export default function GenderChartPage() {
         chartConfig={chartConfig}
         chartData={chartData}
       >
-        <Bar dataKey="male" barSize={40} fill="#ccc" radius={6} />
-        <Bar barSize={40} dataKey="female" fill="#2563eb" radius={6} />
+        <Bar
+          dataKey="male"
+          barSize={30}
+          fill="hsl(150, 100%, 30%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="female"
+          barSize={30}
+          fill="hsl(150, 100%, 45%)"
+          radius={6}
+        />
       </MyChartBar>
     );
   }

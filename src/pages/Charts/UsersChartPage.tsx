@@ -35,8 +35,18 @@ export default function UsersChartPage() {
         chartData={chartData}
         chartTitle="users"
       >
-        <Bar dataKey={"employer"} barSize={40} fill="#2563eb" radius={6} />
-        <Bar dataKey="jobseeker" barSize={40} fill="#ccc" radius={6} />
+        <Bar
+          dataKey={"employer"}
+          barSize={40}
+          fill="hsl(150, 100%, 30%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="jobseeker"
+          barSize={40}
+          fill="hsl(150, 100%, 45%)"
+          radius={6}
+        />
       </MyChartBar>
     );
   }

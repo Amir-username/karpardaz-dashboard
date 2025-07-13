@@ -40,9 +40,24 @@ export default function PositionChartPage() {
         chartData={chartData}
         chartTitle="position"
       >
-        <Bar dataKey="junior" barSize={30} fill="#263eb" radius={6} />
-        <Bar dataKey="midlevel" barSize={30} fill="#2563eb" radius={6} />
-        <Bar dataKey="senior" barSize={30} fill="#2563eb" radius={6} />
+        <Bar
+          dataKey="junior"
+          barSize={30}
+          fill="hsl(150, 100%, 50%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="midlevel"
+          barSize={30}
+          fill="hsl(150, 100%, 40%)"
+          radius={6}
+        />
+        <Bar
+          dataKey="senior"
+          barSize={30}
+          fill="hsl(150, 100%, 30%)"
+          radius={6}
+        />
       </MyChartBar>
     );
   }
