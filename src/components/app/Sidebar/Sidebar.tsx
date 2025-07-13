@@ -13,6 +13,22 @@ function SideBar() {
         <AccordionItem value="item-1">
           <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
             <span className="material-symbols-outlined text-muted-foreground">
+              bar_chart
+            </span>
+            <h4 className="text-xl text-secondary-foreground">نمودار ها</h4>
+          </AccordionTrigger>
+          <AccordionContent>
+            <ul className="flex flex-col gap-3 py-2">
+              <SideBarItem link="/charts/ad-salary" text="نمودار دستمزد" />
+              <SideBarItem link="/charts/position" text="نمودار موقعیت شغلی" />
+              <SideBarItem link="/charts/users" text="نمودار تفکیک نقش" />
+              <SideBarItem link="/charts/gender" text="نمودار تفکیک جنسیت" />
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-1">
+          <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
+            <span className="material-symbols-outlined text-muted-foreground">
               groups
             </span>
             <h4 className="text-xl text-secondary-foreground">کارفرما</h4>
