@@ -1,25 +1,30 @@
-import { PanelItem } from "../Employer/EmployerPanel";
+import PanelCard from "@/components/app/PanelCard/PanelCard";
+import PanelCardItem from "@/components/app/PanelCard/PanelCardItem";
 
 function JobSeekerPanel() {
   return (
-    <ul className="flex flex-wrap gap-4 w-full h-full my-48 items-center justify-center px-8">
-      <PanelItem link="/jobseekers" title="لیست کارجو" icon="person" />
-      <PanelItem
+    <PanelCard>
+      <PanelCardItem
+        link="/jobseekers"
+        title="لیست کارجو"
+        icon="person"
+      />
+      <PanelCardItem
         link="/jobseeker-details"
         title="جزئیات کارجو"
         icon="demography"
       />
-      <PanelItem
+      <PanelCardItem
         link="/jobseeker-advertises"
         title="آگهی کارجو"
         icon="campaign"
       />
-      <PanelItem
+      <PanelCardItem
         link="/jobseeker-requests"
         title="درخواست کارجو"
         icon="work_history"
       />
-    </ul>
+    </PanelCard>
   );
 }
 

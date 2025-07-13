@@ -26,7 +26,7 @@ function SideBar() {
             </ul>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-1">
+        <AccordionItem value="item-2">
           <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
             <span className="material-symbols-outlined text-muted-foreground">
               groups
@@ -48,7 +48,7 @@ function SideBar() {
             </ul>
           </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
+        <AccordionItem value="item-3">
           <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
             <span className="material-symbols-outlined text-muted-foreground">
               person
