@@ -6,8 +6,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import { fetchGenderChart } from "@/fetch/chart/fetchGenderChart";
-import { useEffect, useState } from "react";
+import { useFetchChart } from "@/hooks/useFetchChart";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const chartConfig = {
@@ -28,26 +27,20 @@ type ChartDataType = {
 };
 
 export default function GenderChartPage() {
-  const [chartData, setChartData] = useState<ChartDataType[]>();
+  const { chartData, error } = useFetchChart<ChartDataType>("charts/gender");
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchGenderChart();
-      console.log(data);
-
-      if (data) {
-        setChartData([data]);
-      }
-    };
-
-    getData();
-  }, []);
-
+  if (error) {
+    return <div>{error}</div>;
+  }
   return (
     <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
       <h1 className="text-center">نمودار جنسیت</h1>
       <div className="">
-        <ChartContainer config={chartConfig} className="min-h-[400px]">
+        <ChartContainer
+          dir="ltr"
+          config={chartConfig}
+          className="min-h-[400px]"
+        >
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <ChartTooltip content={<ChartTooltipContent />} />

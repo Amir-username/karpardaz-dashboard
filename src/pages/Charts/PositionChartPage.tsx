@@ -6,8 +6,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import { fetchPositionChart } from "@/fetch/chart/fetchPositionChart";
-import { useEffect, useState } from "react";
+import { useFetchChart } from "@/hooks/useFetchChart";
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
 const chartConfig = {
@@ -33,27 +32,22 @@ type ChartDataType = {
 };
 
 export default function PositionChartPage() {
-  const [chartData, setChartData] = useState<ChartDataType[]>();
+  const { chartData, error } = useFetchChart<ChartDataType>("charts/position");
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchPositionChart();
-      console.log(data);
-
-      if (data) {
-        setChartData([data]);
-      }
-    };
-
-    getData();
-  }, []);
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
       <h1 className="text-center">نمودار موقعیت شغلی</h1>
       <div className="">
-        <ChartContainer dir="ltr" config={chartConfig} className="min-h-[400px]">
-          <BarChart accessibilityLayer data={chartData} barGap={20} >
+        <ChartContainer
+          dir="ltr"
+          config={chartConfig}
+          className="min-h-[400px]"
+        >
+          <BarChart accessibilityLayer data={chartData} barGap={20}>
             <CartesianGrid vertical={false} />
             <ChartTooltip content={<ChartTooltipContent />} />
             <ChartLegend content={<ChartLegendContent />} />

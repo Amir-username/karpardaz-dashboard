@@ -29,8 +29,7 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
-import { fetchAdSalaryChart } from "@/fetch/chart/fetchAdSalaryChart";
-import { useEffect, useState } from "react";
+import { useFetchChart } from "@/hooks/useFetchChart";
 import { Bar, BarChart, CartesianGrid, Label, XAxis } from "recharts";
 
 type ChartDataType = {
@@ -43,26 +42,23 @@ type ChartDataType = {
 };
 
 export default function AdSalaryChartPage() {
-  const [chartData, setChartData] = useState<ChartDataType[]>();
+  const { chartData, error } = useFetchChart<ChartDataType>(
+    "charts/employer-salary"
+  );
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetchAdSalaryChart();
-      console.log(data);
-
-      if (data) {
-        setChartData([data]);
-      }
-    };
-
-    getData();
-  }, []);
+  if (error) {
+    <div>{error}</div>;
+  }
 
   return (
     <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
       <h1 className="text-center">نمودار دستمزد</h1>
       <div className="">
-        <ChartContainer dir="ltr" config={chartConfig} className="min-h-[400px]">
+        <ChartContainer
+          dir="ltr"
+          config={chartConfig}
+          className="min-h-[400px]"
+        >
           <BarChart accessibilityLayer data={chartData} barGap={20}>
             <CartesianGrid vertical={false} />
             <ChartTooltip content={<ChartTooltipContent />} />
