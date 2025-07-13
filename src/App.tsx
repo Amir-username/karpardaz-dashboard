@@ -18,8 +18,17 @@ import AdSalaryChartPage from "./pages/Charts/AdSalaryChartPage";
 import PositionChartPage from "./pages/Charts/PositionChartPage";
 import UsersChartPage from "./pages/Charts/UsersChartPage";
 import ChartsPanel from "./pages/Charts/ChartsPanel";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    const theme = localStorage.getItem("theme");
+    if (theme && JSON.stringify(theme) === "dark") {
+      const html = document.querySelector("html");
+      html?.classList.add("dark");
+    }
+  }, []);
+
   return (
     <>
       <NavBar />

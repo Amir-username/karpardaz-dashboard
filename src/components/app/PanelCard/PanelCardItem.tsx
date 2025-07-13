@@ -14,7 +14,7 @@ export default function PanelCardItem({
 }: PanelCardItemProps) {
   return (
     <Link to={link}>
-      <Card className="cursor-pointer hover:shadow-md duration-500 min-w-[14rem]">
+      <Card className="cursor-pointer hover:shadow-md dark:shadow-primary-foreground duration-500 min-w-[14rem]">
         <CardContent>
           <div className="flex items-center justify-center rounded-full p-4">
             <span
