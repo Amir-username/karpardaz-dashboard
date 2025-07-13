@@ -1,13 +1,7 @@
-import {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
+import MyChartBar from "@/components/app/Chart/MyChartBar";
+import { type ChartConfig } from "@/components/ui/chart";
 import { useFetchChart } from "@/hooks/useFetchChart";
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
+import { Bar } from "recharts";
 
 const chartConfig = {
   male: {
@@ -32,31 +26,18 @@ export default function GenderChartPage() {
   if (error) {
     return <div>{error}</div>;
   }
-  return (
-    <main className="flex w-full h-full py-16 gap-8 items-center justify-center flex-col">
-      <h1 className="text-center">نمودار جنسیت</h1>
-      <div className="">
-        <ChartContainer
-          dir="ltr"
-          config={chartConfig}
-          className="min-h-[400px]"
-        >
-          <BarChart accessibilityLayer data={chartData}>
-            <CartesianGrid vertical={false} />
-            <ChartTooltip content={<ChartTooltipContent />} />
-            <ChartLegend content={<ChartLegendContent />} />
-            <XAxis
-              dataKey="gender"
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 5)}
-            />
-            <Bar dataKey="male" barSize={40} fill="#ccc" radius={6} />
-            <Bar barSize={40} dataKey="female" fill="#2563eb" radius={6} />
-          </BarChart>
-        </ChartContainer>
-      </div>
-    </main>
-  );
+
+  if (chartData) {
+    return (
+      <MyChartBar
+        title="نمودار جنسیت"
+        chartTitle="gender"
+        chartConfig={chartConfig}
+        chartData={chartData}
+      >
+        <Bar dataKey="male" barSize={40} fill="#ccc" radius={6} />
+        <Bar barSize={40} dataKey="female" fill="#2563eb" radius={6} />
+      </MyChartBar>
+    );
+  }
 }
