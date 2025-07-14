@@ -1,4 +1,4 @@
-import { BASE_LINK } from "../config";
+import { BASE_LINK } from "@/config";
 
 export async function fetchJobSeekerAdDetail(id: number) {
   try {

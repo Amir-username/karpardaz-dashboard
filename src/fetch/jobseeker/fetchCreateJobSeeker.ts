@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { BASE_LINK } from "../config";
+import { BASE_LINK } from "@/config";
 
 type fetchCreateJobSeekerBody = {
   firstname: string;

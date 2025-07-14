@@ -1,5 +1,5 @@
+import { BASE_LINK } from "@/config";
 import axios, { AxiosError } from "axios";
-import { BASE_LINK } from "../config";
 
 type fetchCreateEmployerBody = {
   companyName: string;

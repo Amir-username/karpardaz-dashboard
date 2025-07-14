@@ -1,5 +1,5 @@
+import { BASE_LINK } from "@/config";
 import axios from "axios";
-import { BASE_LINK } from "../config";
 
 type fetchLoginJobSeekerType = {
   username: string;

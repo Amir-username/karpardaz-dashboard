@@ -1,4 +1,4 @@
-import { JobSeekerDetailModel } from "@/models/JobSeekerDetail";
+import type { JobSeekerDetailModel } from "@/models/JobSeekerDetail";
 
 
 export async function fetchCreateJobSeekerDetail(

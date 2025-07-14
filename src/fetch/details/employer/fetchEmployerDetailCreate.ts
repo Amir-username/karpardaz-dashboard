@@ -1,4 +1,4 @@
-import { BASE_LINK } from "@/fetch/config";
+import { BASE_LINK } from "@/config";
 
 export const fetchAddEmployerDetail = async (accessToken: string, body: object) => {
   const res = await fetch(BASE_LINK + "employer-detail/", {

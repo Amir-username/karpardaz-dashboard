@@ -1,4 +1,4 @@
-import { BASE_LINK } from "@/fetch/config";
+import { BASE_LINK } from "@/config";
 
 type BodyType = object;
 

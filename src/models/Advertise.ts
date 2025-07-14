@@ -1,4 +1,4 @@
-import { AdRequestModel } from "./AdRequest";
+import type { AdRequestModel } from "./AdRequest";
 
 export type AdvertiseModel = {
   title: string;

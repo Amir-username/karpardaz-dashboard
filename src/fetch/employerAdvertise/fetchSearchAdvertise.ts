@@ -1,10 +1,10 @@
-import {
-  ExperienceType,
-  GenderType,
-  PositionType,
-  SalaryType,
-} from "@/models/filterTypes";
-import { BASE_LINK } from "../config";
+import { BASE_LINK } from "@/config";
+// import {
+//   ExperienceType,
+//   GenderType,
+//   PositionType,
+//   SalaryType,
+// } from "@/models/filterTypes";
 
 export type SearchParams = {
   q?: string;
@@ -12,10 +12,10 @@ export type SearchParams = {
   is_remote?: boolean;
   is_portfolio?: boolean;
   city?: string;
-  salary?: SalaryType | string;
-  experience?: ExperienceType | string;
-  gender?: GenderType | string;
-  position?: PositionType | string;
+  salary?: string;
+  experience?: string;
+  gender?: string;
+  position?: string;
 };
 
 // Utility to build the query string
@@ -49,10 +49,10 @@ export type FilterType = {
   isInternship?: boolean;
   isPortfolio?: boolean;
   city?: string;
-  salary?: SalaryType | string;
-  experience?: ExperienceType | string;
-  gender?: GenderType | string;
-  position?: PositionType | string;
+  salary?: string;
+  experience?: string;
+  gender?: string;
+  position?: string;
 };
 export async function fetchSearchAdvertise(
   query: string,

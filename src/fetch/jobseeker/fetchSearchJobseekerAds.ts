@@ -1,8 +1,8 @@
-import { BASE_LINK } from "../config";
+import { BASE_LINK } from "@/config";
 import {
-  FilterType,
-  SearchParams,
   buildQuery,
+  type FilterType,
+  type SearchParams,
 } from "../employerAdvertise/fetchSearchAdvertise";
 
 export async function fetchSearchJobSeekerAds(
