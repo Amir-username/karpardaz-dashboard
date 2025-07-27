@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NavBar from "./components/app/Navbar/Navbar";
@@ -21,6 +21,9 @@ import ChartsPanel from "./pages/Charts/ChartsPanel";
 import { useEffect } from "react";
 
 function App() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === "/login";
+
   useEffect(() => {
     const theme = localStorage.getItem("theme");
     if (theme && JSON.stringify(theme) === "dark") {
@@ -33,7 +36,7 @@ function App() {
     <>
       <NavBar />
       <div className="flex">
-        <SideBar />
+        {!isLoginPage && <SideBar />}
 
         <Routes>
           <Route path="/" element={<HomePage />} />
