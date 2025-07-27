@@ -21,10 +21,23 @@ export default function Theme() {
     }
   }, [isDark]);
 
+  const handleToggle = () => setIsDark((d) => !d);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      handleToggle();
+    }
+  };
+
   return (
     <span
-      onClick={() => setIsDark((d) => !d)}
+      role="button"
+      tabIndex={0}
+      onClick={handleToggle}
+      onKeyDown={handleKeyDown}
       className="material-symbols-outlined text-primary cursor-pointer"
+      aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
     >
       {isDark ? "light_mode" : "dark_mode"}
     </span>
