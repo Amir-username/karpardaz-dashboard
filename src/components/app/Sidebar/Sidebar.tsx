@@ -5,29 +5,23 @@ import {
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
 import SideBarItem from "./SideBarItem";
-import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+
 
 function SideBar() {
-  // const [isAccess, setIsAccess] = useState(false);
-
-  // useEffect(() => {
-  //   const token = Cookies.get("dashboard_token");
-
-  //   if (token !== undefined) {
-  //     setIsAccess(true);
-  //   }
-  // }, []);
-
   return (
     <aside className={`pt-12 bg-sidebar h-screen font-vazir w-64`}>
       <Accordion type="multiple" className="p-8 flex flex-col gap-6">
         <AccordionItem value="item-1">
-          <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
-            <span className="material-symbols-outlined text-muted-foreground">
-              bar_chart
+          <AccordionTrigger className="flex justify-between gap-3 w-full cursor-pointer group">
+            <div className="flex gap-3">
+              <span className="material-symbols-outlined text-muted-foreground">
+                bar_chart
+              </span>
+              <h4 className="text-xl text-secondary-foreground">نمودار ها</h4>
+            </div>
+            <span className="material-symbols-outlined text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180">
+              expand_more
             </span>
-            <h4 className="text-xl text-secondary-foreground">نمودار ها</h4>
           </AccordionTrigger>
           <AccordionContent>
             <ul className="flex flex-col gap-3 py-2">
@@ -39,11 +33,16 @@ function SideBar() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-2">
-          <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
-            <span className="material-symbols-outlined text-muted-foreground">
-              groups
+          <AccordionTrigger className="flex justify-between gap-3 w-full cursor-pointer group">
+            <div className="flex gap-3">
+              <span className="material-symbols-outlined text-muted-foreground">
+                groups
+              </span>
+              <h4 className="text-xl text-secondary-foreground">کارفرما</h4>
+            </div>
+            <span className="material-symbols-outlined text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180">
+              expand_more
             </span>
-            <h4 className="text-xl text-secondary-foreground">کارفرما</h4>
           </AccordionTrigger>
           <AccordionContent>
             <ul className="flex flex-col gap-3 py-2">
@@ -61,11 +60,16 @@ function SideBar() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
-          <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
-            <span className="material-symbols-outlined text-muted-foreground">
-              person
+          <AccordionTrigger className="flex justify-between gap-3 w-full cursor-pointer group">
+            <div className="flex gap-3">
+              <span className="material-symbols-outlined text-muted-foreground">
+                person
+              </span>
+              <h4 className="text-xl text-secondary-foreground">کارجو</h4>
+            </div>
+            <span className="material-symbols-outlined text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180">
+              expand_more
             </span>
-            <h4 className="text-xl text-secondary-foreground">کارجو</h4>
           </AccordionTrigger>
           <AccordionContent>
             <ul className="flex flex-col gap-3 py-2">
