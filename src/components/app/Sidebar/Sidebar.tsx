@@ -5,10 +5,22 @@ import {
   AccordionTrigger,
 } from "@radix-ui/react-accordion";
 import SideBarItem from "./SideBarItem";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 function SideBar() {
+  // const [isAccess, setIsAccess] = useState(false);
+
+  // useEffect(() => {
+  //   const token = Cookies.get("dashboard_token");
+
+  //   if (token !== undefined) {
+  //     setIsAccess(true);
+  //   }
+  // }, []);
+
   return (
-    <aside className="pt-12 bg-sidebar h-screen font-vazir w-64">
+    <aside className={`pt-12 bg-sidebar h-screen font-vazir w-64`}>
       <Accordion type="multiple" className="p-8 flex flex-col gap-6">
         <AccordionItem value="item-1">
           <AccordionTrigger className="flex gap-3 w-32 cursor-pointer">
