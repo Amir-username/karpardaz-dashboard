@@ -66,11 +66,11 @@ describe('LoginForm', () => {
     fireEvent.change(screen.getByPlaceholderText(/رمز عبور/), {
       target: { value: '@123' },
     });
-    
+
     fireEvent.click(screen.getByRole('button', { name: /ورود/i }));
 
     await waitFor(() => {
-      expect(screen.getByText('لطفاً نام کاربری و رمز عبور را به درستی وارد کنید')).toBeInTheDocument();
+      expect(screen.getByText('نام کاربری باید حداقل 3 کاراکتر و رمز عبور حداقل 5 کاراکتر باشد')).toBeInTheDocument();
       expect(axios.post).not.toHaveBeenCalled();
       expect(Cookies.set).not.toHaveBeenCalled();
       expect(navigateMock).not.toHaveBeenCalled();
@@ -127,17 +127,17 @@ describe('LoginForm', () => {
     render(<LoginForm />);
 
     const passwordInput = screen.getByPlaceholderText(/رمز عبور/);
-    const toggleButton = screen.getByRole('button', { name: '' }); // Eye icon button
+    const toggleSpan = screen.getByTestId('password-toggle'); // Eye icon span
 
     // Initially password should be hidden
     expect(passwordInput).toHaveAttribute('type', 'password');
 
     // Click to show password
-    fireEvent.click(toggleButton);
+    fireEvent.click(toggleSpan);
     expect(passwordInput).toHaveAttribute('type', 'text');
 
     // Click to hide password again
-    fireEvent.click(toggleButton);
+    fireEvent.click(toggleSpan);
     expect(passwordInput).toHaveAttribute('type', 'password');
   });
 
@@ -183,10 +183,11 @@ describe('LoginForm', () => {
     fireEvent.change(screen.getByPlaceholderText(/رمز عبور/), {
       target: { value: '@123' },
     });
-    
+
     fireEvent.click(screen.getByRole('button', { name: /ورود/i }));
 
     await waitFor(() => {
+      expect(screen.getByText('نام کاربری باید حداقل 3 کاراکتر و رمز عبور حداقل 5 کاراکتر باشد')).toBeInTheDocument();
       expect(axios.post).not.toHaveBeenCalled();
       expect(Cookies.set).not.toHaveBeenCalled();
       expect(navigateMock).not.toHaveBeenCalled();

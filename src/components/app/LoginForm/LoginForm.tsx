@@ -21,22 +21,37 @@ function LoginForm() {
     setError("");
     setIsLoading(true);
 
-    console.log(username);
+    // Basic validation
+    if (!username.trim() || !password.trim()) {
+      setError("لطفاً نام کاربری و رمز عبور را وارد کنید");
+      setIsLoading(false);
+      return;
+    }
 
-    if (username.length > 2 && password.length > 4) {
-      try {
-        await fetchLogin(username, password);
+    if (username.trim().length < 3 || password.trim().length < 5) {
+      setError("نام کاربری باید حداقل 3 کاراکتر و رمز عبور حداقل 5 کاراکتر باشد");
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      const result = await fetchLogin(username.trim(), password);
+
+      if (result.success) {
+        // Login successful
         setUsername("");
         setPassword("");
+        setError("");
         navigator("/");
-      } catch (error) {
-        console.error("Login failed:", error);
+      } else {
+        // Login failed - show error message
         setError("نام کاربری یا رمز عبور اشتباه است");
-      } finally {
-        setIsLoading(false);
       }
-    } else {
-      setError("لطفاً نام کاربری و رمز عبور را به درستی وارد کنید");
+    } catch (error) {
+      // Fallback error handling for unexpected errors
+      console.error("Unexpected login error:", error);
+      setError("خطای غیرمنتظره در ورود به سیستم");
+    } finally {
       setIsLoading(false);
     }
   };
@@ -62,11 +77,10 @@ function LoginForm() {
               disabled={isLoading}
             />
             <div className="relative">
-              <button
-                type="button"
+              <span
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute cursor-pointer left-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-                disabled={isLoading}
+                data-testid="password-toggle"
               >
                 {showPassword ? (
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +92,7 @@ function LoginForm() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                   </svg>
                 )}
-              </button>
+              </span>
               <Input
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
